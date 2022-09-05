@@ -52,10 +52,6 @@ class IsCallableFunctionTypeSpecifyingExtension implements FunctionTypeSpecifyin
 			&& $valueType instanceof ConstantArrayType
 			&& !$valueType->isCallable()->no()
 		) {
-			if ($value->items[0] === null || $value->items[1] === null) {
-				throw new ShouldNotHappenException();
-			}
-
 			$functionCall = new FuncCall(new Name('method_exists'), [
 				new Arg($value->items[0]->value),
 				new Arg($value->items[1]->value),
